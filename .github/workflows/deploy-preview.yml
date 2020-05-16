@@ -1,0 +1,26 @@
+name: deploy-preview
+
+on: [push]
+
+jobs:
+  deploy-preview:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: add file
+        run: |
+          echo deploy-preview > public/date.txt
+          echo `date` >> public/date.txt
+
+      - name: Commit files
+        run: |
+          echo ${{ github.ref }}
+          git add public
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "ci: Automated build push" -a | exit 0
+      - name: push
+        run: git push "https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git" --follow-tags -f | exit 0
