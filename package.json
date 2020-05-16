@@ -1,7 +1,7 @@
 {
   "husky": {
     "hooks": {
-      "pre-commit": "./pre-commit.sh"
+      "pre-commit": "./pre-commit.sh deploy-preview && git add public"
     }
   },
   "devDependencies": {

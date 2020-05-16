@@ -14,10 +14,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build
-        run: |
-          cp src/index.html public/index.html
-          sed -i 's/{stage}/production/g' public/index.html
-          sed -i "s/{date}/`date`/g" public/index.html
+        run: ./pre-commit.sh production
 
       - name: checkout branch for publish
         run: git checkout -b production-public
