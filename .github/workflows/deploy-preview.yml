@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: add file
+      - name: build
         run: |
           echo deploy-preview > public/index.html
           echo `date` >> public/index.html
