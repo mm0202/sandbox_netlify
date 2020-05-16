@@ -1,6 +1,9 @@
 name: staging
 
-on: [push]
+on:
+  push:
+    branches:
+      - staging
 
 jobs:
   staging:
@@ -14,9 +17,6 @@ jobs:
         run: |
           echo staging > public/date.txt
           echo `date` >> public/date.txt
-
-      - name: checkout staging
-        run: git checkout -b staging
 
       - name: Commit files
         run: |
