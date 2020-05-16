@@ -1,12 +1,19 @@
-name: staging
+name: deploy-preview
 
 on:
   push:
-    branches:
+    branches-ignore:
+      - production
       - staging
+      - master
+      - develop
+      - production-public
+      - staging-public
+    tags:
+      - '*'
 
 jobs:
-  staging:
+  deploy-preview:
 
     runs-on: ubuntu-latest
 
@@ -14,10 +21,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build
-        run: ./build.sh staging
-
-      - name: checkout branch for publish
-        run: git checkout -b staging-public
+        run: ./build.sh deploy-preview
 
       - name: Commit files
         run: |
@@ -25,6 +29,6 @@ jobs:
           git add public
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m "ci: Automated build push" | exit 0
+          git commit -m "ci: Automated build push" -a | exit 0
       - name: push
         run: git push "https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git" --follow-tags -f | exit 0
