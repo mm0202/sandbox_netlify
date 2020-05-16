@@ -16,8 +16,8 @@ jobs:
       - name: build
         run: |
           cp src/index.html public/index.html
-          sed -e 's/{stage}/staging/g' public/index.html
-          sed -e "s/{date}/`date`/g" public/index.html
+          sed -i 's/{stage}/staging/g' public/index.html
+          sed -i "s/{date}/`date`/g" public/index.html
 
       - name: checkout branch for publish
         run: git checkout -b staging-public
