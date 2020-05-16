@@ -1,6 +1,10 @@
 name: deploy-preview
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - production
+      - staging
 
 jobs:
   deploy-preview:
