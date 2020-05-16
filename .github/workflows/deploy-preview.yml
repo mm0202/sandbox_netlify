@@ -5,10 +5,10 @@ on:
     branches-ignore:
       - production
       - staging
-      - production-public
-      - staging-public
       - master
       - develop
+      - production-public
+      - staging-public
     tags:
       - '*'
 
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build
-        run: ./pre-commit.sh
+        run: ./build.sh deploy-preview
 
       - name: Commit files
         run: |
@@ -32,4 +32,3 @@ jobs:
           git commit -m "ci: Automated build push" -a | exit 0
       - name: push
         run: git push "https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git" --follow-tags -f | exit 0
-
