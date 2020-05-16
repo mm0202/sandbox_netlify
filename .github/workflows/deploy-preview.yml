@@ -16,10 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: add file
+      - name: build
         run: |
-          echo deploy-preview > public/index.html
-          echo `date` >> public/index.html
+          cp src/index.html public/index.html
+          sed -i 's/{stage}/deploy-previce/g' public/index.html
+          sed -i "s/{date}/`date`/g" public/index.html
 
       - name: Commit files
         run: |
