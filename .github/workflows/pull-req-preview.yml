@@ -2,16 +2,8 @@ name: pull-req-preview
 
 on:
   pull_request:
-    branches-ignore:
-      - production
-#      - staging
-      - master
-      - develop
-      - production-public
-      - staging-public
-      - pull-req-preview-public
-    tags:
-      - '*'
+    branches:
+      - staging
 
 jobs:
   pull-req-preview:
