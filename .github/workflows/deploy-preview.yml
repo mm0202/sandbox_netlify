@@ -5,6 +5,10 @@ on:
     branches-ignore:
       - production
       - staging
+      - production-public
+      - staging-public
+      - master
+      - develop
     tags:
       - '*'
 
