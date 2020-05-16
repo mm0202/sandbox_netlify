@@ -15,8 +15,8 @@ jobs:
 
       - name: add file
         run: |
-          echo production > public/date.txt
-          echo `date` >> public/date.txt
+          echo production > public/index.html
+          echo `date` >> public/index.html
 
       - name: Commit files
         run: |

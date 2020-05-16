@@ -12,8 +12,8 @@ jobs:
 
       - name: add file
         run: |
-          echo deploy-preview > public/date.txt
-          echo `date` >> public/date.txt
+          echo deploy-preview > public/index.html
+          echo `date` >> public/index.html
 
       - name: Commit files
         run: |
