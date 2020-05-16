@@ -1,12 +1,9 @@
-name: production
+name: deploy-preview
 
-on:
-  push:
-    branches:
-      - production
+on: [push]
 
 jobs:
-  production:
+  deploy-preview:
 
     runs-on: ubuntu-latest
 
@@ -15,7 +12,7 @@ jobs:
 
       - name: add file
         run: |
-          echo production > public/index.html
+          echo deploy-preview > public/index.html
           echo `date` >> public/index.html
 
       - name: Commit files
