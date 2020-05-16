@@ -1,6 +1,9 @@
 name: pull-req-preview
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - staging
 
 jobs:
   pull-req-preview:
