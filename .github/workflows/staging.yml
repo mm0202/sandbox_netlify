@@ -18,6 +18,9 @@ jobs:
           echo staging > public/index.html
           echo `date` >> public/index.html
 
+      - name: checkout branch for publish
+        run: git checkout -b staging-public
+
       - name: Commit files
         run: |
           echo ${{ github.ref }}
