@@ -15,8 +15,9 @@ jobs:
 
       - name: build
         run: |
-          echo production > public/index.html
-          echo `date` >> public/index.html
+          cp src/index.html public/index.html
+          sed -e 's/{stage}/production/g' public/index.html
+          sed -e "s/{date}/`date`/g" public/index.html
 
       - name: checkout branch for publish
         run: git checkout -b production-public
