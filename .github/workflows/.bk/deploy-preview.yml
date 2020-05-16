@@ -5,6 +5,10 @@ on:
     branches-ignore:
       - production
       - staging
+      - production-public
+      - staging-public
+      - master
+      - develop
     tags:
       - '*'
 
@@ -19,7 +23,7 @@ jobs:
       - name: build
         run: |
           cp src/index.html public/index.html
-          sed -i 's/{stage}/deploy-previce/g' public/index.html
+          sed -i 's/{stage}/deploy-preview/g' public/index.html
           sed -i "s/{date}/`date`/g" public/index.html
 
       - name: Commit files
@@ -31,3 +35,4 @@ jobs:
           git commit -m "ci: Automated build push" -a | exit 0
       - name: push
         run: git push "https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git" --follow-tags -f | exit 0
+
