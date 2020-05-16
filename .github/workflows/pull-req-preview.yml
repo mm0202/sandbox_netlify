@@ -1,10 +1,10 @@
 name: pull-req-preview
 
 on:
-  pull_requst:
+  pull_request:
     branches-ignore:
       - production
-      - staging
+#      - staging
       - master
       - develop
       - production-public
