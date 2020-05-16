@@ -6,7 +6,7 @@ on:
       - production
 
 jobs:
-  staging:
+  production:
 
     runs-on: ubuntu-latest
 
