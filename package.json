@@ -1,0 +1,10 @@
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "./pre-commit.sh"
+    }
+  },
+  "devDependencies": {
+    "husky": "^4.2.5"
+  }
+}
