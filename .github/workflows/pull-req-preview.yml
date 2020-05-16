@@ -4,7 +4,6 @@ on:
   pull_requst:
     branches-ignore:
       - production
-      - staging
       - master
       - develop
       - production-public
